@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Input, Button } from "@mui/material";
 import { FormGroup } from "@mui/material";
 import LoadingMask from "./LoadingMask";
-const axios = require("axios");
+import axios from "axios";
 
 const Subscription = () => {
   const [emailInput, setEmailInput] = useState("");
-  const [validEmail, setValidEmail] = useState(false);
+  //const [validEmail, setValidEmail] = useState(false);
   const [loading, setLoading] = useState(false);
   const [subscribed, setSubscribed] = useState(false);
   const [display, setDisplay] = useState(true);
@@ -25,7 +25,7 @@ const Subscription = () => {
     } catch {}
   };
 
-  const checkValid = (value) => {
+  /*   const checkValid = (value) => {
     setEmailInput(value);
     let dot = false;
     let at = false;
@@ -38,7 +38,7 @@ const Subscription = () => {
     } else {
       setValidEmail(false);
     }
-  };
+  }; */
 
   return (
     <div>
@@ -48,12 +48,15 @@ const Subscription = () => {
         ) : loading ? (
           <LoadingMask />
         ) : (
-          <FormGroup>
-            <Input onChange={(e) => checkValid(e.target.value)}>
+          <FormGroup style={{ width: "300px" }}>
+            <Input
+              placeholder="email"
+              onChange={(e) => setEmailInput(e.target.value)}
+            >
               Subscribe to our newsletter
             </Input>
             <Button
-              disabled={!validEmail}
+              disabled={!emailInput.includes(".") || !emailInput.includes("@")}
               variant="contained"
               onClick={sendSubscription}
             >
