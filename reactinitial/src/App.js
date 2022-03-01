@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import LoadingMask from "./components/LoadingMask";
 import Character from "./components/Character";
 import Subscription from "./components/Subscription";
-const axios = require("axios");
+import axios from "axios";
 
 const App = () => {
   const [myList, updateList] = useState("");
