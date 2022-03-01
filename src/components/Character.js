@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const Character = ({ char }) => {
   const [showDetails, toggleShowDetails] = useState(false);
   return (
     <div>
-      <div>{char.name}</div>
-      {showDetails && <div>{char.details}</div>}
+      <p>{char.name}</p>
+      {showDetails && <p>{char.details}</p>}
       <button onClick={() => toggleShowDetails(!showDetails)}>
         {showDetails ? "Show less" : "Show more"}
       </button>

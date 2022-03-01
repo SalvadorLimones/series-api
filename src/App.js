@@ -10,14 +10,14 @@ const App = () => {
   const [showSubscribe, setshowSubscribe] = useState(false);
 
   const renderData = async () => {
+    setTimeout(() => {
+      setshowSubscribe(true);
+    }, 10000);
     let resp = await axios.get(
       "https://seriescharacters.com/api/howimetyourmother"
     );
     updateList(resp.data);
     setLoading(false);
-    setTimeout(() => {
-      setshowSubscribe(true);
-    }, 10000);
   };
 
   useEffect(() => {
